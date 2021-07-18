@@ -37,6 +37,9 @@ void solve(int test = 1){
     int n,m;cin>>n>>m;
     vector<vector<int>>g(n+1);
     int a,b;
+
+    //a task before b task
+
     for(int i=0;i<m;i++){
         cin>>a>>b;
         g[a].emplace_back(b);
@@ -59,6 +62,5 @@ void solve(int test = 1){
         order.pop();
     }
     cout<<endl;
-
 }
 
