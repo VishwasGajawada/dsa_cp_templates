@@ -28,19 +28,20 @@ void solve(vector<vector<int>>&edges,vector<int>&weights,int vertices,int start,
     }
     vector<int>dist(n,INT_MAX);
     vector<bool>visit(n,false);
-    vector<int>path(n,-1);  //not required generally ,.. but to visualise path from start to end
+    vector<int>parent(n,-1);  //not required generally ,.. but to visualise path from start to end
     priority_queue<pi,vector<pi>,greater<pi>>pq; //{weight and vertex}
     dist[start] = 0;
     pq.push({0,start});
     while(!pq.empty()){
         auto [w,u] = pq.top();
         pq.pop();
+        if(visit[u])continue;
         visit[u] = true;
         for(auto [v,edge_w] : g[u]){
             if(!visit[v] && dist[v]>dist[u]+edge_w){
                 dist[v] = dist[u]+edge_w;
                 pq.push({dist[v],v});
-                path[v] = u;
+                parent[v] = u;
             }
         }
     }
@@ -53,7 +54,7 @@ void solve(vector<vector<int>>&edges,vector<int>&weights,int vertices,int start,
     int v = end;
     while(v!=-1){
         cout<<v<<" <- ";
-        v = path[v];
+        v = parent[v];
     }
     cout<<endl;
 }
@@ -73,13 +74,14 @@ void solve2(vector<vector<int>>&edges,vector<int>&weights,int vertices,int start
     }
     vector<int>dist(n,INT_MAX);
     vector<bool>visit(n,false);
-    vector<int>path(n,-1);  //not required generally ,.. but to visualise path from start to end
+    vector<int>parent(n,-1);  //not required generally ,.. but to visualise path from start to end
     priority_queue<pi,vector<pi>,greater<pi>>pq; //{weight and vertex}
     dist[start] = 0;
     pq.push({0,start});
     while(!pq.empty()){
         int w = pq.top().first , u = pq.top().second;
         pq.pop();
+        if(visit[u])continue;
         visit[u] = true;
         for(auto v : g[u]){
             int edge_w = weight[{u,v}];
@@ -87,7 +89,7 @@ void solve2(vector<vector<int>>&edges,vector<int>&weights,int vertices,int start
                 dist[v] = dist[u]+edge_w;
                 pq.push({dist[v],v});
 
-                path[v] = u;
+                parent[v] = u;
             }
         }
     }
@@ -100,7 +102,7 @@ void solve2(vector<vector<int>>&edges,vector<int>&weights,int vertices,int start
     int v = end;
     while(v!=-1){
         cout<<v<<" <- ";
-        v = path[v];
+        v = parent[v];
     }
     cout<<endl;
 }
