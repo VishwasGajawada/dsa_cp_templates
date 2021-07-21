@@ -110,14 +110,6 @@ void solve2(vector<vector<int>>&edges,vector<int>&weights,int vertices,int start
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    // #ifndef ONLINE_JUDGE
-    //     freopen("in.txt","r",stdin);
-    //     freopen("out.txt","w",stdout);
-    //     freopen("err.txt","w",stderr);
-    // #endif
- 
-    // int t;cin >>t;
-    // while(t--)solve();
 
     vector<vector<int>>edges;
     vector<int>weights;
