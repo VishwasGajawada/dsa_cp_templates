@@ -36,12 +36,12 @@ void prims(vector<vector<int>>&edges,vector<int>&weights,int vertices){
             cout<<"NO MST"<<endl;
             return;
         }
-        auto [w,u] = *s.begin();
+        auto [w2,u] = *s.begin();
         s.erase(s.begin());
         visit[u] = true;
-        mst_cost+=w;
+        mst_cost+=w2;
         
-        cout<<u<<" "<<w<<endl;
+        cout<<u<<" "<<w2<<endl;
 
         for(auto [v,w] : g[u]){
             if(!visit[v] && dist[v] > w){

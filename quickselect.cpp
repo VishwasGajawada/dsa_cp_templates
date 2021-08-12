@@ -48,9 +48,9 @@ int main(){
  
     // int t;cin >>t;
     // while(t--)solve();
-    vector<int>arr = {5,6,-4,1,5,0};
+    vector<int>arr = {3,2,1,5,6,4};
     int n = arr.size();
-    int k = 3; //find kth smallest element
+    int k = 5; //find kth smallest element
     int ans = solve(arr,0,n-1,k);
     cout<<ans<<endl;
 
