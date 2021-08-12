@@ -12,7 +12,8 @@ using namespace std;
 #define endl "\n"
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
-const int mod = 1e9+7;
+#define minpq(x) priority_queue<x,vector<x>,greater<x>>
+#define maxpq(x) priority_queue<x>
 
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x <<" : "; _print(x); cerr << endl;
@@ -37,10 +38,25 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
+template <typename T>
+void deb(T t) {
+    _print(t);
+    cerr<<endl;
+}
+template<class T,class... Args>
+void deb(T t,Args... args){
+    _print(t);
+    cerr<<" ";
+    deb(args...);
+}
+
+
+
 void google(int test){
     cout<<"Case #"<<test<<": ";
 }
 
+const int mod = 1e9+7;
 void solve(int test = 1){
     
 }
